@@ -1,6 +1,7 @@
 /// <reference path="../../.tmp/typings/tsd.d.ts" />
 
 import { config } from './index.config';
+import { routerConfig } from './index.route';
 import { runBlock } from './index.run';
 import { MainController } from './main/main.controller';
 import { GithubContributor } from '../app/components/githubContributor/githubContributor.service';
@@ -14,10 +15,11 @@ declare var moment: moment.MomentStatic;
 module ionicTypescriptGulpSeed {
   'use strict';
 
-  angular.module('ionicTypescriptGulpSeed', ['toastr'])
+  angular.module('ionicTypescriptGulpSeed', ['ui.router', 'toastr'])
     .constant('malarkey', malarkey)
     .constant('moment', moment)
     .config(config)
+    .config(routerConfig)
     .run(runBlock)
     .service('githubContributor', GithubContributor)
     .service('webDevTec', WebDevTecService)
