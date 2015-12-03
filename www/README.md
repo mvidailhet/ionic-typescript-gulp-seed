@@ -1,0 +1,1 @@
+This file exists only to be able to add www folder to Git (otherwise, Cordova won't recognize the folder as a valid Cordova project)
