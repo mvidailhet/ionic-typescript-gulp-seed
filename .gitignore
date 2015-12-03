@@ -9,3 +9,5 @@ dist/
 typings/
 .editorconfig
 .yo-rc.json
+platforms
+plugins
