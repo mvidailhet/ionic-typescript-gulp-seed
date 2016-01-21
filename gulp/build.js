@@ -106,8 +106,6 @@ gulp.task('clean', function () {
   return $.del([path.join(conf.paths.dist, '/**/*'), path.join('!' + conf.paths.dist, '/README.md'), path.join(conf.paths.tmp, '/partials'), path.join(conf.paths.tmp, '/serve')]);
 });
 
-//gulp.task('build', ['html', 'fonts', 'other']);
-
 gulp.task('build', function (callback) {
   $.runSequence('clean', ['html', 'fonts', 'other'], callback);
 });
