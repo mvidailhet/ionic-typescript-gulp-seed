@@ -67,6 +67,18 @@ gulp.task('html', ['inject', 'partials'], function () {
     .pipe($.size({ title: path.join(conf.paths.dist, '/'), showFiles: true }));
   });
 
+gulp.task('html:debug', ['scripts:watch', 'inject'], function () {
+  return gulp.src([
+    path.join(conf.paths.tmp, '/serve/**/*'),
+    path.join(conf.paths.src, '/**/*.html'),
+    path.join('!' + conf.paths.src, '/index.html'),
+    path.join(conf.paths.src, '/bower_component*/**/*.{js,css,eot,svg,ttf,woff}'),
+    path.join(conf.paths.src, '/assets*/**/*'),
+    path.join('!' + conf.paths.src, '/bower_components/**/*.html')
+  ])
+    .pipe(gulp.dest(path.join(conf.paths.dist, '/')));
+});
+
 // Only applies for fonts from bower dependencies
 // Custom fonts are handled by the "other" task
 gulp.task('fonts', function () {
@@ -94,3 +106,5 @@ gulp.task('clean', function () {
 });
 
 gulp.task('build', ['html', 'fonts', 'other']);
+
+gulp.task('build:debug', ['html:debug']); // don't minify
