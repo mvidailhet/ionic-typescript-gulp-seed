@@ -7,7 +7,7 @@ export class MainController {
   public creationDate: number;
 
   /* @ngInject */
-  constructor($timeout: angular.ITimeoutService, webDevTec: WebDevTecService, private toastr: any) {
+  constructor($timeout: angular.ITimeoutService, webDevTec: WebDevTecService, private toastr: any, private ENV_CURRENT: string) {
     this.awesomeThings = new Array();
     this.webDevTec = webDevTec;
     this.classAnimation = '';

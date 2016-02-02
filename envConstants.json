@@ -1,0 +1,8 @@
+{
+    "development": {
+        "ENV_CURRENT": "development"
+    },
+    "production": {
+        "ENV_CURRENT": "production"
+    }
+}

@@ -42,7 +42,7 @@ function webpackWrapper(watch, test, callback) {
     }
   };
 
-  var sources = [ path.join(conf.paths.src, '/app/index.module.ts') ];
+  var sources = [ path.join(conf.paths.src, '/app/index.module.ts'), path.join(conf.paths.src, '/ngConstants.js') ];
   if (test) {
     sources.push(path.join(conf.paths.src, '/app/**/*.spec.ts'));
   }

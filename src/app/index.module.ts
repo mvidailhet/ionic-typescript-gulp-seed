@@ -14,7 +14,7 @@ declare var moment: moment.MomentStatic;
 module ionicTypescriptGulpSeed {
   'use strict';
 
-  angular.module('ionicTypescriptGulpSeed', ['ionic', 'toastr'])
+  angular.module('ionicTypescriptGulpSeed', ['ionic', 'toastr', 'envConstants'])
     .constant('malarkey', malarkey)
     .constant('moment', moment)
     .config(config)

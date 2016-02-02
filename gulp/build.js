@@ -107,7 +107,7 @@ gulp.task('clean', function () {
 });
 
 gulp.task('build', function (callback) {
-  $.runSequence('clean', ['html', 'fonts', 'other'], callback);
+  $.runSequence('clean', ['env-constants-production', 'html', 'fonts', 'other'], callback);
 });
 
-gulp.task('build:debug', ['html:debug']); // don't minify
+gulp.task('build:debug', ['env-constants-development', 'html:debug']); // don't minify
