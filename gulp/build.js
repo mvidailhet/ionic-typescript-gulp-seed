@@ -67,7 +67,7 @@ gulp.task('html', ['inject', 'partials'], function () {
     .pipe($.size({ title: path.join(conf.paths.dist, '/'), showFiles: true }));
   });
 
-gulp.task('html:debug', ['scripts:watch', 'inject'], function () {
+gulp.task('html:debug', ['scripts:build-debug', 'inject'], function () {
   return gulp.src([
     path.join(conf.paths.tmp, '/serve/**/*'),
     path.join(conf.paths.src, '/**/*.html'),

@@ -10,7 +10,7 @@ var webpack = require('webpack-stream');
 var $ = require('gulp-load-plugins')();
 
 
-function webpackWrapper(watch, test, callback) {
+function webpackWrapper(watch, build_debug, test, callback) {
   var webpackOptions = {
     resolve: { extensions: ['', '.ts'] },
     watch: watch,
@@ -21,7 +21,7 @@ function webpackWrapper(watch, test, callback) {
     output: { filename: 'index.module.js' }
   };
 
-  if(watch) {
+  if(watch || build_debug) {
     webpackOptions.devtool = 'inline-source-map';
   }
 
@@ -53,17 +53,21 @@ function webpackWrapper(watch, test, callback) {
 }
 
 gulp.task('scripts', function () {
-  return webpackWrapper(false, false);
+  return webpackWrapper(false, false, false);
 });
 
 gulp.task('scripts:watch', ['scripts'], function (callback) {
-  return webpackWrapper(true, false, callback);
+  return webpackWrapper(true, false, false, callback);
+});
+
+gulp.task('scripts:build-debug', ['scripts'], function (callback) {
+  return webpackWrapper(false, true, false, callback);
 });
 
 gulp.task('scripts:test', function () {
-  return webpackWrapper(false, true);
+  return webpackWrapper(false, false, true);
 });
 
 gulp.task('scripts:test-watch', ['scripts'], function (callback) {
-  return webpackWrapper(true, true, callback);
+  return webpackWrapper(true, false, true, callback);
 });
